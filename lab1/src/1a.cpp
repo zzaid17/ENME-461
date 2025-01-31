@@ -1,5 +1,8 @@
 #include <Arduino.h>
 
+// Pin definition
+const int ledPin = 2;
+
 void setup() {
   pinMode(2, OUTPUT);
 }

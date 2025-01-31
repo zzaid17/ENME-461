@@ -1,11 +1,12 @@
 #include <Arduino.h>
 
+const int ledPin = 2;
+const int potPin = A0;
+int potVal;
+
 void setup() {
   Serial.begin(9600);
-  pinMode(2, OUTPUT);
-  int ledPin = 2;
-  int potPin = A0;
-  int potVal;
+  pinMode(ledPin, OUTPUT);
 }
 
 void loop() {

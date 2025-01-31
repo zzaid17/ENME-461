@@ -4,13 +4,12 @@
 const int photoResistorPin = A0;
 const int potentiometerPin = A1;
 const int ledPhotoResistor = 2;
-const int ledPotentiometer = 3;
-int ambientLight;
+const int ledPotentiometer = 4;
 
 void setup() {
+    Serial.begin(9600);
     pinMode(ledPhotoResistor, OUTPUT);
     pinMode(ledPotentiometer, OUTPUT);
-    ambientLight = analogRead(photoResistorPin);
 }
 
 void loop() {
@@ -18,11 +17,13 @@ void loop() {
     int lightLevel = analogRead(photoResistorPin);
   
     // Turns LED on when photoresistor is covered and off otherwise
-    if (lightLevel < ambientLight * 0.5) {
+    if (lightLevel > 300) {
         digitalWrite(ledPhotoResistor, HIGH);
     } else {
         digitalWrite(ledPhotoResistor, LOW);
     }
+
+    Serial.println(lightLevel);
   
     // Read potentiometer value
     int potValue = analogRead(potentiometerPin);

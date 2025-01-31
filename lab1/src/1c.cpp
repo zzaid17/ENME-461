@@ -1,9 +1,12 @@
 #include <Arduino.h>
 
+// Pin definitions
+const int ledPin1 = 2;
+const int ledPin2 = 3;
+
 void setup() {
-  Serial.begin(9600);
-  pinmode(ledPin1, OUTPUT);
-  pinmode(ledPin2, OUTPUT);
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
 }
 
 void loop() {
@@ -20,7 +23,7 @@ void loop() {
   digitalWrite(ledPin2, LOW);
 
   // One LED blinks five times, one second on, one second off, red turns off
-  for (int i = 0, i < 5, i++) {
+  for (int i = 0; i < 5; i++) {
     digitalWrite(ledPin1, HIGH);
     delay(1000);
     digitalWrite(ledPin1, LOW);
@@ -28,7 +31,7 @@ void loop() {
   }
 
   // The other LED blinks five times, one second on, one second off, green turns off
-  for (int i = 0, i < 5, i++) {
+  for (int i = 0; i < 5; i++) {
     digitalWrite(ledPin2, HIGH);
     delay(1000);
     digitalWrite(ledPin2, LOW);
